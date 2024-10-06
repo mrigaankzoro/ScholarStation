@@ -82,3 +82,5 @@ All CSS must adhere to [CSS Guidelines](https://cssguidelin.es/).
 ## Thank You! 💖
 
 Again, thank you for your contribution to Scholar Station. Your time and expertise help make education more accessible and collaborative for students around the world! 🌍📚
+
+go to notes.md for notes contribution
