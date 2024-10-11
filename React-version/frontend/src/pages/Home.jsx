@@ -108,7 +108,7 @@ const Home = () => {
                                         transition-all duration-200 hover:scale-95 w-fit'>
                             <div className='flex flex-row items-center gap-2 rounded-full px-10 py-[5px]
                               transition-all duration-200 group-hover:bg-richblack-900'>
-                                <p>Become an Instructor</p>
+                                <p>Become an Provider</p>
                                 <FaArrowRight />
                             </div>
                         </div>
@@ -175,7 +175,7 @@ const Home = () => {
                     <InstructorSection />
 
                     {/* Reviws from Other Learner */}
-                    <h1 className="text-center text-3xl lg:text-4xl font-semibold mt-8 flex justify-center items-center gap-x-3">
+                    <h1 className="text-center text-white text-3xl lg:text-4xl font-semibold mt-8 flex justify-center items-center gap-x-3">
                         Reviews from other learners <MdOutlineRateReview className='text-yellow-25' />
                     </h1>
                     <ReviewSlider />

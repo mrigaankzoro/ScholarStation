@@ -81,7 +81,7 @@ const About = () => {
                 Our Founding Story
               </h1>
               <p className="text-base font-medium text-richblack-300 lg:w-[95%]">
-                Our e-learning platform was born out of a shared vision and
+                Our e-learning Notes platform was born out of a shared vision and
                 passion for transforming education. It all began with a group of
                 educators, technologists, and lifelong learners who recognized
                 the need for accessible, flexible, and high-quality learning
@@ -119,7 +119,7 @@ const About = () => {
               </h1>
               <p className="text-base font-medium text-richblack-300 lg:w-[95%]">
                 With this vision in mind, we set out on a journey to create an
-                e-learning platform that would revolutionize the way people
+                e-learning Notes platform that would revolutionize the way people
                 learn. Our team of dedicated experts worked tirelessly to
                 develop a robust and intuitive platform that combines
                 cutting-edge technology with engaging content, fostering a
@@ -148,7 +148,7 @@ const About = () => {
 
       {/* Reviws from Other Learner */}
       <div className=" my-20 px-5 text-white ">
-        <h1 className="text-center text-4xl font-semibold mt-8">
+        <h1 className="text-center text-4xl  text-white font-semibold mt-8">
           Reviews from other learners
         </h1>
         <ReviewSlider />
