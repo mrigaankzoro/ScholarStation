@@ -32,7 +32,6 @@ To get started with Scholar Station, follow these steps:
 2. Install dependencies:
    ```
    cd scholar-station
-   npm install
    ```
 
 3. Set up environment variables:
@@ -40,10 +39,12 @@ To get started with Scholar Station, follow these steps:
 
 4. Run the development server:
    ```
+   cd client
+   npi install
    npm run dev
    ```
 
-5. Open `http://localhost:3000` in your browser to see the application.
+5. Open `http://localhost:5173/` in your browser to see the application.
 
 ## Contributing
 
@@ -61,6 +62,12 @@ Please read our [CONTRIBUTING.md](CONTRIBUTING.md) file for more details on our 
 ## Code of Conduct
 
 We are committed to fostering a welcoming and inclusive community. Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing to the project.
+
+## Contributors
+
+<a href="https://github.com/mrigaankzoro/ScholarStation/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=mrigaankzoro/ScholarStation" width="50%"/>
+</a>
 
 ## License
 

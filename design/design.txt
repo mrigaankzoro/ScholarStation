@@ -1,3 +1,0 @@
-make me a design for this website how it should look etc...
-page by page and uplod it in the folder 
-all commit will be uder hacktober fest
