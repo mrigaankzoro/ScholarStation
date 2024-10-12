@@ -88,9 +88,7 @@ const Footer = () => {
           </div>
 
           {/* Section 2 */}
-          <div className=" text-4xl p-1 font-bold text-white hover:text-blue-400 transition  cursive duration-300 ease-in-out my-4">
-            Ace Your Grade UP
-          </div>
+       
         </div>
       </div>
 

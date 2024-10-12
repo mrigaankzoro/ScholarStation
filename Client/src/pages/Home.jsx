@@ -125,6 +125,7 @@ const Home = () => {
                         Empower Your Future with
                         <HighlightText text={"Scholar Station"} />
                     </motion.div>
+                    
 
                     <motion.div
                         variants={fadeIn('right', 0.1)}
@@ -140,33 +141,7 @@ const Home = () => {
                  
                 </div>
 
-                {/* animated code */}
-                <div className='relative mx-auto flex flex-col w-11/12 max-w-maxContent items-center text-white justify-between'>
-                    {/* Code block 1 */}
-                  
-
-                    {/* Code block 2 */}
-                   
-
-                    {/* course slider */}
-                    <div className='mx-auto box-content w-full max-w-maxContentTab px- py-12 lg:max-w-maxContent'>
-                        <h2 className='text-white mb-6 text-2xl '>
-                            Popular Picks for You 🏆
-                        </h2>
-                        <Course_Slider Courses={CatalogPageData?.selectedCategory?.courses} />
-                    </div>
-                    <div className=' mx-auto box-content w-full max-w-maxContentTab px- py-12 lg:max-w-maxContent'>
-                        <h2 className='text-white mb-6 text-2xl '>
-                            Top Enrollments Today 🔥
-                        </h2>
-                        <Course_Slider Courses={CatalogPageData?.mostSellingCourses} />
-                    </div>
-
-
-                    <ExploreMore />
-                </div>
-
-                {/*Section 2  */}
+           
              
 
 
@@ -175,10 +150,8 @@ const Home = () => {
                     <InstructorSection />
 
                     {/* Reviws from Other Learner */}
-                    <h1 className="text-center text-white text-3xl lg:text-4xl font-semibold mt-8 flex justify-center items-center gap-x-3">
-                        Reviews from other learners <MdOutlineRateReview className='text-yellow-25' />
-                    </h1>
-                    <ReviewSlider />
+                   
+                    
                 </div>
 
                 {/*Footer */}
