@@ -14,7 +14,7 @@ import Contact from "./pages/Contact";
 import PageNotFound from "./pages/PageNotFound";
 import CourseDetails from './pages/CourseDetails';
 import Catalog from './pages/Catalog';
- 
+
 import Navbar from "./components/common/Navbar"
 
 import OpenRoute from "./components/core/Auth/OpenRoute"
@@ -38,6 +38,7 @@ import VideoDetails from './components/core/ViewCourse/VideoDetails';
 import { ACCOUNT_TYPE } from './utils/constants';
 
 import { HiArrowNarrowUp } from "react-icons/hi"
+import FilterNotes from "./pages/FilterNotes";
 
 
 function App() {
@@ -90,6 +91,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
+        <Route path="/filter-notes" element={<FilterNotes />} />
         <Route path="catalog/:catalogName" element={<Catalog />} />
         <Route path="courses/:courseId" element={<CourseDetails />} />
 

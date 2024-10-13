@@ -63,7 +63,7 @@ const Home = () => {
         setBackgroundImg(bg);
     }, [])
 
-    // console.log('bg ==== ', backgroundImg)
+
 
     // get courses data
     const [CatalogPageData, setCatalogPageData] = useState(null);

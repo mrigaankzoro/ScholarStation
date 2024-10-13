@@ -1,0 +1,19 @@
+version: '3'
+services:
+  backend:
+    build: ./api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./api:/app
+    environment:
+      NODE_ENV: development
+
+  frontend:
+    build: ./Client
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./Client:/app
+    environment:
+      NODE_ENV: development
