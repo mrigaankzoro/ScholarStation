@@ -11,7 +11,7 @@ import MobileProfileDropDown from '../core/Auth/MobileProfileDropDown';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-import logo1 from '../../assets/Logo/Navbarlogo.png';
+import logo1 from '/logo-3.png';
 const Navbar = () => {
     const { token } = useSelector((state) => state.auth);
     const { user } = useSelector((state) => state.profile);
@@ -34,7 +34,8 @@ const Navbar = () => {
     };
 
     useEffect(() => {
-        fetchSublinks();
+        // once backend is done then remove the comment
+        // fetchSublinks();
     }, []);
 
     const matchRoute = (route) => {
@@ -68,7 +69,7 @@ const Navbar = () => {
             <div className='flex w-11/12 max-w-maxContent items-center justify-between'>
                 {/* Logo */}
                 <Link to="/">
-                    <img src={logo1} alt="ScholarStation" className="h-8 w-auto" />
+                    <img src={logo1} alt="ScholarStation" className="h-8 w-auto lg:scale-150" />
                     {/* Adjust the height (`h-8`) and width (`w-auto`) as needed */}
                 </Link>
 
@@ -78,7 +79,7 @@ const Navbar = () => {
                         NavbarLinks.map((link, index) => (
                             <li key={index}>
                                 {
-                                    link.title === "Catalog" ? (
+                                    link.title === "Resources" ? (
                                         <div
                                             className={`group relative flex cursor-pointer items-center gap-1 ${matchRoute("/catalog/:catalogName")
                                                 ? "bg-yellow-25 text-black rounded-xl p-1 px-3"

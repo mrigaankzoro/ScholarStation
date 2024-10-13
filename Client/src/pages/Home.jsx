@@ -104,12 +104,12 @@ const Home = () => {
                 <div className='relative h-[450px] md:h-[550px] justify-center mx-auto flex flex-col w-11/12 max-w-maxContent items-center text-white '>
 
                     <Link to={"/signup"}>
-                        <div className='z-0 group p-1 mx-auto rounded-full bg-richblack-800 font-bold text-richblack-200
+                        <div className='z-0 group p-1 mx-auto rounded-full bg-gradient-to-r from-[#5189ff] to-caribbeangreen-300 font-bold text-white
                                         transition-all duration-200 hover:scale-95 w-fit'>
                             <div className='flex flex-row items-center gap-2 rounded-full px-10 py-[5px]
                               transition-all duration-200 group-hover:bg-richblack-900'>
-                                <p>Become an Provider</p>
-                                <FaArrowRight />
+                                <p className=''>Become an Provider</p>
+                                <FaArrowRight className='stroke-1 stroke-black' />
                             </div>
                         </div>
 
@@ -125,7 +125,7 @@ const Home = () => {
                         Empower Your Future with
                         <HighlightText text={"Scholar Station"} />
                     </motion.div>
-                    
+
 
                     <motion.div
                         variants={fadeIn('right', 0.1)}
@@ -134,24 +134,20 @@ const Home = () => {
                         viewport={{ once: false, amount: 0.1 }}
                         className=' mt-4 w-[90%] text-center text-base lg:text-lg font-bold text-richblack-300'
                     >
-                       
+
                     </motion.div>
 
 
-                 
+
                 </div>
-
-           
-             
-
 
                 {/*Section 3 */}
                 <div className='mt-14 w-11/12 mx-auto max-w-maxContent flex-col items-center justify-between gap-8 first-letter bg-richblack-900 text-white'>
                     <InstructorSection />
 
                     {/* Reviws from Other Learner */}
-                   
-                    
+
+
                 </div>
 
                 {/*Footer */}
