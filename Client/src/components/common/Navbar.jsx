@@ -11,9 +11,7 @@ import MobileProfileDropDown from '../core/Auth/MobileProfileDropDown';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-// Import your logo image using a relative path
-import logo1 from 'E:/NotesHub/ScholarStation/React-version/frontend/src/assets/Logo/logo1.png'; // Adjust the path based on your directory structure
-
+import logo1 from '../../assets/Logo/Navbarlogo.png';
 const Navbar = () => {
     const { token } = useSelector((state) => state.auth);
     const { user } = useSelector((state) => state.profile);
@@ -70,7 +68,7 @@ const Navbar = () => {
             <div className='flex w-11/12 max-w-maxContent items-center justify-between'>
                 {/* Logo */}
                 <Link to="/">
-                    <img src={logo1} alt="ScholarStation Logo" className="h-8 w-auto" />
+                    <img src={logo1} alt="ScholarStation" className="h-8 w-auto" />
                     {/* Adjust the height (`h-8`) and width (`w-auto`) as needed */}
                 </Link>
 
