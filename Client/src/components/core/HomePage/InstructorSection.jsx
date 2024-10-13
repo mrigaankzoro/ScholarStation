@@ -35,7 +35,7 @@ const InstructorSection = () => {
           </div>
 
           <p className='font-medium text-[16px] w-[80%] text-richblack-300 mb-12'>
-          "Unlock a world of knowledge with Scholar Station – your go-to platform for accessing comprehensive, high-quality notes curated by top students and educators, tailored to help you ace your exams."
+            "Unlock a world of knowledge with Scholar Station – your go-to platform for accessing comprehensive, high-quality notes curated by top students and educators, tailored to help you ace your exams."
           </p>
 
           <div className='w-fit'>
