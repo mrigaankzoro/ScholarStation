@@ -1,53 +1,52 @@
-import React from "react"
+import React from "react";
 
-import FoundingStory from "../assets/Images/FoundingStory.png"
-import BannerImage1 from "../assets/Images/aboutus1.webp"
-import BannerImage2 from "../assets/Images/aboutus2.webp"
-import BannerImage3 from "../assets/Images/aboutus3.webp"
+import FoundingStory from "../assets/Images/FoundingStory.png";
+import BannerImage1 from "../assets/Images/aboutus1.webp";
+import BannerImage2 from "../assets/Images/aboutus2.webp";
+import BannerImage3 from "../assets/Images/aboutus3.webp";
 
-import Footer from "../components/common/Footer"
-import ContactFormSection from "../components/core/AboutPage/ContactFormSection"
-import LearningGrid from "../components/core/AboutPage/LearningGrid"
-import Quote from "../components/core/AboutPage/Quote"
-import StatsComponenet from "../components/core/AboutPage/Stats"
-import HighlightText from "../components/core/HomePage/HighlightText"
-import Img from "../components/common/Img"
-import ReviewSlider from './../components/common/ReviewSlider';
+import Footer from "../components/common/Footer";
+import ContactFormSection from "../components/core/AboutPage/ContactFormSection";
+import LearningGrid from "../components/core/AboutPage/LearningGrid";
+import Quote from "../components/core/AboutPage/Quote";
+import StatsComponenet from "../components/core/AboutPage/Line";
+import HighlightText from "../components/core/HomePage/HighlightText";
+import Img from "../components/common/Img";
+import ReviewSlider from "./../components/common/ReviewSlider";
 
-import { motion } from 'framer-motion';
-import { fadeIn } from "../components/common/motionFrameVarients"
-
-
-
-
+import { motion } from "framer-motion";
+import { fadeIn } from "../components/common/motionFrameVarients";
 
 const About = () => {
   return (
     <div>
       <section className="bg-richblack-700">
         <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-center text-white">
-          <motion.header
-            className="mx-auto py-20 text-4xl font-semibold lg:w-[70%]"
-          >
+          <motion.header className="mx-auto py-20 text-4xl font-semibold lg:w-[70%]">
             <motion.p
-              variants={fadeIn('down', 0.1)}
-              initial='hidden'
-              whileInView={'show'}
+              variants={fadeIn("down", 0.1)}
+              initial="hidden"
+              whileInView={"show"}
               viewport={{ once: false, amount: 0.1 }}
-            > Driving Innovation in Online Education for a
-              <HighlightText text={"Brighter Future"} />
+            >
+              {" "}
+              Unlock knowledge, one note at a time – Welcome to
+              <HighlightText text={"ScholarStation!"} />
             </motion.p>
 
             <motion.p
-              variants={fadeIn('up', 0.1)}
-              initial='hidden'
-              whileInView={'show'}
+              variants={fadeIn("up", 0.1)}
+              initial="hidden"
+              whileInView={"show"}
               viewport={{ once: false, amount: 0.1 }}
-              className="mx-auto mt-3 text-center text-base font-medium text-richblack-300 lg:w-[95%]">
-              Scholar Station is at the forefront of driving innovation in online
-              education. We're passionate about creating a brighter future by
-              offering cutting-edge courses, leveraging emerging technologies,
-              and nurturing a vibrant learning community.
+              className="mx-auto mt-3 text-center text-base font-medium text-richblack-300 lg:w-[95%]"
+            >
+              ScholarStation is at the forefront of transforming the way
+              knowledge is captured and shared. We're passionate about
+              empowering learners with a dynamic platform for creating,
+              organizing, and collaborating on notes. By leveraging modern
+              technology, we aim to nurture a thriving community of students and
+              educators, making learning accessible and efficient for everyone.
             </motion.p>
           </motion.header>
 
@@ -72,37 +71,39 @@ const About = () => {
         <div className="mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-richblack-500">
           <div className="flex flex-col items-center gap-10 lg:flex-row justify-between">
             <motion.div
-              variants={fadeIn('right', 0.1)}
-              initial='hidden'
-              whileInView={'show'}
+              variants={fadeIn("right", 0.1)}
+              initial="hidden"
+              whileInView={"show"}
               viewport={{ once: false, amount: 0.1 }}
-              className="my-24 flex lg:w-[50%] flex-col gap-10">
+              className="my-24 flex lg:w-[50%] flex-col gap-10"
+            >
               <h1 className="bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCB045] bg-clip-text text-4xl font-semibold text-transparent lg:w-[70%] ">
                 Our Founding Story
               </h1>
               <p className="text-base font-medium text-richblack-300 lg:w-[95%]">
-                Our e-learning Notes platform was born out of a shared vision and
-                passion for transforming education. It all began with a group of
-                educators, technologists, and lifelong learners who recognized
-                the need for accessible, flexible, and high-quality learning
-                opportunities in a rapidly evolving digital world.
+                ScholarStation was born out of a shared vision and passion for
+                revolutionizing the way notes and knowledge are shared. It all
+                began with a group of students, technologists, and learners who
+                recognized the need for a centralized, accessible, and
+                user-friendly platform to capture and share notes in a
+                fast-paced digital world.
               </p>
               <p className="text-base font-medium text-richblack-300 lg:w-[95%]">
-                As experienced educators ourselves, we witnessed firsthand the
-                limitations and challenges of traditional education systems. We
-                believed that education should not be confined to the walls of a
-                classroom or restricted by geographical boundaries. We
-                envisioned a platform that could bridge these gaps and empower
-                individuals from all walks of life to unlock their full
-                potential.
+                As students ourselves, we experienced the challenges of
+                disorganized notes and limited access to quality study
+                materials. We believed that learning should be a collaborative,
+                open experience—free from boundaries. With ScholarStation, we
+                aim to bridge these gaps, empowering individuals from all
+                backgrounds to enhance their knowledge and contribute to a
+                global learning community.
               </p>
             </motion.div>
 
             <motion.div
-             variants={fadeIn('left', 0.1)}
-             initial='hidden'
-             whileInView={'show'}
-             viewport={{ once: false, amount: 0.1 }}
+              variants={fadeIn("left", 0.1)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.1 }}
             >
               <Img
                 src={FoundingStory}
@@ -118,12 +119,13 @@ const About = () => {
                 Our Vision
               </h1>
               <p className="text-base font-medium text-richblack-300 lg:w-[95%]">
-                With this vision in mind, we set out on a journey to create an
-                e-learning Notes platform that would revolutionize the way people
-                learn. Our team of dedicated experts worked tirelessly to
-                develop a robust and intuitive platform that combines
-                cutting-edge technology with engaging content, fostering a
-                dynamic and interactive learning experience.
+                With this vision in mind, we embarked on a journey to create
+                ScholarStation—an innovative notes-sharing platform that would
+                transform the way students and learners interact with knowledge.
+                Our team of dedicated students and technologists worked
+                tirelessly to build a user-friendly, powerful platform that
+                combines modern technology with seamless collaboration,
+                fostering a vibrant and accessible learning community.
               </p>
             </div>
 
@@ -132,7 +134,14 @@ const About = () => {
                 Our Mission
               </h1>
               <p className="text-base font-medium text-richblack-300 lg:w-[95%]">
-                Our mission goes beyond just delivering courses online. We wanted to create a vibrant community of learners, where individuals can connect, collaborate, and learn from one another. We believe that knowledge thrives in an environment of sharing and dialogue, and we foster this spirit of collaboration through forums, live sessions, and networking opportunities.
+                Our mission goes beyond just offering a platform for notes. We
+                aim to build a thriving community of learners where individuals
+                can connect, collaborate, and share their knowledge freely. We
+                believe that learning is most effective in an environment of
+                open exchange and discussion. Through ScholarStation, we promote
+                this spirit of collaboration by enabling users to share notes,
+                engage in discussions, and support one another’s learning
+                journeys.
               </p>
             </div>
           </div>
@@ -148,16 +157,14 @@ const About = () => {
 
       {/* Reviws from Other Learner */}
       <div className=" my-20 px-5 text-white ">
-        <h1 className="text-center text-4xl  text-white font-semibold mt-8">
-          Reviews from other learners
-        </h1>
+       
         <ReviewSlider />
       </div>
 
       {/* footer */}
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;
