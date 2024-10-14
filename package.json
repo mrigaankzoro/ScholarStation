@@ -4,6 +4,7 @@
     "cors": "^2.8.5",
     "express": "^4.21.1",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.7.1"
+    "mongoose": "^8.7.1",
+    "react-spinners": "^0.14.1"
   }
 }
