@@ -10,8 +10,10 @@ import MobileProfileDropDown from '../core/Auth/MobileProfileDropDown';
 
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { HiOutlineMenuAlt3, HiOutlineX } from "react-icons/hi";
 
 import logo1 from '/logo-3.png';
+
 const Navbar = () => {
     const { token } = useSelector((state) => state.auth);
     const { user } = useSelector((state) => state.profile);
@@ -20,6 +22,7 @@ const Navbar = () => {
 
     const [subLinks, setSubLinks] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     const fetchSublinks = async () => {
         try {
@@ -54,19 +57,25 @@ const Navbar = () => {
 
     const controlNavbar = () => {
         if (window.scrollY > 200) {
-            if (window.scrollY > lastScrollY)
-                setShowNavbar('hide');
-            else
-                setShowNavbar('show');
+            setShowNavbar(window.scrollY > lastScrollY ? 'hide' : 'show');
+        } else {
+            setShowNavbar('top');
         }
-        else setShowNavbar('top');
-
         setLastScrollY(window.scrollY);
     };
 
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const handleResize = () => {
+        setSidebarOpen(false);
+    }
+
     return (
         <nav className={`z-[10] flex h-14 w-full items-center justify-center border-b-[1px] border-b-richblack-700 text-white translate-y-0 transition-all ${showNavbar}`}>
-            <div className='flex w-11/12 max-w-maxContent items-center justify-between'>
+            <div className='flex w-full max-w-maxContent items-center justify-between'>
                 {/* Logo */}
                 <Link to="/">
                     <img src={logo1} alt="ScholarStation" className="h-8 w-auto lg:scale-150" />
@@ -74,7 +83,7 @@ const Navbar = () => {
                 </Link>
 
                 {/* Nav Links - visible for only large devices */}
-                <ul className='hidden sm:flex gap-x-6 text-richblack-25'>
+                <ul className='hidden md:flex gap-x-4 text-richblack-25'>
                     {
                         NavbarLinks.map((link, index) => (
                             <li key={index}>
@@ -127,7 +136,7 @@ const Navbar = () => {
                 </ul>
 
                 {/* Login/SignUp/Dashboard */}
-                <div className='flex gap-x-4 items-center'>
+                <div className="flex sm:flex-row gap-2 items-center text-xs sm:text-sm p-2">
                     {
                         user && user.accountType !== "Instructor" && (
                             <Link to="/dashboard/cart" className="relative">
@@ -169,6 +178,45 @@ const Navbar = () => {
                     {/* for small devices */}
                     {token !== null && <MobileProfileDropDown />}
 
+                </div>
+
+                
+                {/* Hamburger Icon for Mobile View */}
+                <div className="md:hidden flex items-center">
+                    <button onClick={() => setSidebarOpen(true)}>
+                        <HiOutlineMenuAlt3 className="text-2xl text-white" />
+                    </button>
+                </div>
+
+                {/* Sidebar */}
+                <div className={`fixed top-0 left-0 h-screen w-64 bg-richblack-900 z-20 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:hidden`}>
+                    <div className="flex items-center bg-richblack-800 justify-between p-3">
+                        <Link to="/">
+                            <img src={logo1} alt="ScholarStation" className="h-8 w-auto lg:scale-150" />
+                        </Link>
+                        <button className="text-white text-2xl" onClick={() => setSidebarOpen(false)}>
+                            <HiOutlineX />
+                        </button>
+                    </div>
+
+                    <div className="bg-richblack-900">
+                        <ul className="mt-10 space-y-4">
+                            {NavbarLinks.map((link, index) => (
+                                <li key={index} className="px-4 py-2">
+                                    <Link 
+                                        to={link.path} 
+                                        onClick={() => setSidebarOpen(false)} 
+                                        className="flex items-center relative text-sm md:text-base lg:text-lg text-white transition duration-200 hover:bg-richblack-800"
+                                    >
+                                        {link.icon && <span className="mr-2">{link.icon}</span>}
+                                        {link.title}
+                                        <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white transition-transform duration-200 transform scale-x-0 hover:scale-x-100"></span>
+                                        <span className="absolute left-0 bottom-0 w-full h-px bg-richblack-300"></span> {/* Bottom border */}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
