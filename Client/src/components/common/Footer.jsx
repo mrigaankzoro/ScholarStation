@@ -88,7 +88,9 @@ const Footer = () => {
           </div>
 
           {/* Section 2 */}
-       
+          <div className="p-2">
+             <span>Ace Your grade</span>
+          </div>
         </div>
       </div>
 
