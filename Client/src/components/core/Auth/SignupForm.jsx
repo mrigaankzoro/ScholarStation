@@ -80,7 +80,7 @@ function SignupForm() {
     },
     {
       id: 2,
-      tabName: "Instructor",
+      tabName: "Provider",
       type: ACCOUNT_TYPE.INSTRUCTOR,
     },
   ];
