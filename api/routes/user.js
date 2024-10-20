@@ -1,9 +1,10 @@
-const express = require("express");
+const express = require('express');
+const { getCourses, addCourse, updateCourse, deleteCourse } = require('../controllers/courseController');
 const router = express.Router();
 
-// Fetch user profile
-router.get("/profile", (req, res) => {
-    // get user profile logic
-});
+router.get('/', getCourses);
+router.post('/', addCourse);
+router.put('/:id', updateCourse);
+router.delete('/:id', deleteCourse);
 
 module.exports = router;
