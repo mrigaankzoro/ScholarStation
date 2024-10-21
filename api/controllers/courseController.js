@@ -9,6 +9,15 @@ exports.getCourses = async (req, res) => {
     }
 };
 
+exports.getCourse = async (req, res) => {
+    try {
+        const course = await Course.findById(req.params.id);
+        res.json(course);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
 exports.addCourse = async (req, res) => {
     try {
         const course = new Course(req.body);

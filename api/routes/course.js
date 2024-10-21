@@ -1,14 +1,8 @@
-const express = require("express");
+const express = require('express');
+const { getCourses, getCourse } = require('../controllers/courseController');
 const router = express.Router();
 
-// Get course details by ID
-router.get("/:courseId", (req, res) => {
-    // handle getting course by ID
-});
-
-// Add new course
-router.post("/add", (req, res) => {
-    // handle adding new course
-});
+router.get('/', getCourses);
+router.get('/:id', getCourse);
 
 module.exports = router;
