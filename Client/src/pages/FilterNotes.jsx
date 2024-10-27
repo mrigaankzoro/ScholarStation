@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { data } from '../notesDemoData';
-import { FaCaretDown } from 'react-icons/fa';
+import { FaCaretDown, FaPen } from 'react-icons/fa';
 import { GoPerson } from "react-icons/go";
+import { MdKeyboardArrowRight } from 'react-icons/md'
 
 function FilterNotes() {
     const [category, setCategory] = useState(["Engineering", "MCA", "Programming"]);
@@ -27,88 +28,74 @@ function FilterNotes() {
     // Toggle year visibility
     const handleBranchClick = (branch) => {
         setSelectedBranch(branch);
+        setSelectedYear("1"); // Reset year when branch changes
     };
 
     return (
-        <div className="p-6 bg-gray-100">
-            <div className="text-black mb-4">
-                <div className="relative inline-block">
-                    <select 
-                        className="border rounded p-2 pr-8"
-                        onChange={(e) => setPresentCategory(e.target.value)} 
-                        defaultValue={presentCategory}
-                    >
-                        {category.map((cat) => (
-                            <option key={cat} value={cat}>
-                                {cat}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-            </div>
-            <div className="flex flex-col md:flex-row">
-                <div className="flex-1 mb-4 md:mb-0">
-                    {uniqueBranches.length === 0 ? (
-                        <p>No data present for selected category.</p>
-                    ) : (
-                        uniqueBranches.map((branch) => (
-                            <div 
-                                key={branch} 
-                                className="relative w-full p-4 border-2 border-gray-300 mb-2 cursor-pointer hover:bg-gray-200" 
-                                onClick={() => handleBranchClick(branch)}
-                            >
-                                <h3 className="font-semibold">
-                                    {branch}
-                                    <FaCaretDown className="absolute right-2 top-2 text-gray-500" />
-                                </h3>
-                                
-                                {showYears && selectedBranch === branch && (
-                                    <div className="mt-2">
-                                        {yearsForBranch.length > 0 ? (
-                                            <ul>
-                                                {yearsForBranch.map((year, index) => (
-                                                    <li 
-                                                        key={index} 
-                                                        className="cursor-pointer hover:text-blue-500"
-                                                        onClick={() => setSelectedYear(year)}
-                                                    >
-                                                        {year} year
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        ) : (
-                                            <p>No years available.</p>
-                                        )}
-                                    </div>
-                                )}
-                            </div>
-                        ))
-                    )}
-                </div>
-                <div className="flex-1">
-                    {/* {subjectsForYear.length === 0 ? (
-                        <p>No subjects available for the selected category, branch, and year.</p>
-                    ) : ( */}
-                        {subjectsForYear.map((note) => (
-                            <div key={note.subject} className="flex justify-between items-center w-full p-4 border-2 border-gray-300 mb-2">
-                                <a 
-                                    href={note.notesLink} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer" 
-                                    className="text-white hover:underline"
-                                >
-                                    {note.subject}
-                                </a>
-                                <p className="flex items-center text-gray-600 gap-2">
-                                    <GoPerson className='mt-1' /> 
-                                    {note.author}
-                                </p>
-                            </div>
-                        ))}
-                    {/* )} */}
-                </div>
-            </div>
+      <div className="mx-2 bg-gray-900 min-h-screen text-white">
+      {/* Top section with title and category select */}
+        <div className="w-full bg-gray-800 p-5 border-y m-0 gap-2 flex md:flex-row flex-col justify-start md:justify-between border-y text-white pb-6">
+          <div className="flex gap-2 items-center md:text-xl text-xs">
+            <FaPen className="text-lg md:text-xl" />
+            <span className="text-xl md:text-2xl font-bold">Notes</span>
+          </div>
+          <select
+            className="border-none outline-none rounded-lg p-2 pr-8 bg-black text-white"
+            onChange={(e) => setPresentCategory(e.target.value)}
+            defaultValue={presentCategory}
+          >
+            {category.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat}
+              </option>
+            ))}
+          </select>
         </div>
+
+        {/* Main content section */}
+        <div className="w-full h-full flex flex-col md:flex-row cursor-pointer">
+          {/* Sidebar for branches */}
+          <aside className="md:border-r border-none flex md:flex-col flex-row md:w-1/5 w-full overflow-x-auto h-full bg-gray-800 text-white">
+            {uniqueBranches.map((branch) => (
+              <div
+                key={branch}
+                className="border-b border-gray-600 m-2 p-4 hover:bg-blue-300 flex items-center justify-between rounded-lg transition-colors duration-200"
+                onClick={() => handleBranchClick(branch)}
+              >
+                {branch}
+                <FaCaretDown className="hidden md:block" />
+              </div>
+            ))}
+          </aside>
+
+          {/* Notes list */}
+          <div className="flex-1 p-4">
+            {subjectsForYear.length > 0 ? (
+              subjectsForYear.map((note) => (
+                <div
+                  key={note.subject}
+                  className="mx-10 flex justify-between items-center w-full p-4 border-2 border-gray-300 mb-2 rounded-lg shadow-md transition-transform transform hover:scale-105"
+                >
+                  <a
+                    href={note.notesLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white font-semibold hover:underline"
+                  >
+                    {note.subject}
+                  </a>
+                  <p className="flex items-center text-gray-600 gap-2">
+                    <GoPerson className="mt-1" />
+                    {note.author}
+                  </p>
+                </div>
+              ))
+            ) : (
+              <p className="text-gray-600">No subjects available for this year.</p>
+            )}
+          </div>
+        </div>
+      </div>
     );
 }
 
