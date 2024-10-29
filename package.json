@@ -7,5 +7,11 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.7.1",
     "react-spinners": "^0.14.1"
-  }
+  },
+  "scripts": {
+   "start": "concurrently \"npm run server\" \"npm run client\"",
+   "server": "node notes-backend/index.js", 
+   "client": "cd Client && npm run dev"
+}
+
 }
