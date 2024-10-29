@@ -30,6 +30,7 @@ import VideoDetails from './components/core/ViewCourse/VideoDetails';
 import { ACCOUNT_TYPE } from './utils/constants';
 import { HiArrowNarrowUp } from "react-icons/hi";
 import FilterNotes from "./pages/FilterNotes";
+import AddNote from "./pages/Addnotes"
 
 function App() {
   const { user } = useSelector((state) => state.profile);
@@ -100,6 +101,7 @@ function App() {
             <Route path="/filter-notes" element={<FilterNotes />} />
             <Route path="catalog/:catalogName" element={<Catalog />} />
             <Route path="courses/:courseId" element={<CourseDetails />} />
+            <Route path="/add-note" element={< AddNote/>} />
 
             {/* Open Route - for Only Non Logged in User */}
             <Route
