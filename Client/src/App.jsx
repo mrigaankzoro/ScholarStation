@@ -31,7 +31,8 @@ import { ACCOUNT_TYPE } from './utils/constants';
 import { HiArrowNarrowUp } from "react-icons/hi";
 import FilterNotes from "./pages/FilterNotes";
 import AddNote from "./pages/Addnotes"
-
+import DeleteNode from "./pages/delete"
+import DeleteNote from "./pages/delete";
 function App() {
   const { user } = useSelector((state) => state.profile);
   const location = useLocation();
@@ -102,7 +103,7 @@ function App() {
             <Route path="catalog/:catalogName" element={<Catalog />} />
             <Route path="courses/:courseId" element={<CourseDetails />} />
             <Route path="/add-note" element={< AddNote/>} />
-
+            <Route path="/delete-note" element={< DeleteNote/>} />
             {/* Open Route - for Only Non Logged in User */}
             <Route
               path="signup"

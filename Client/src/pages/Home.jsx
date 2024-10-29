@@ -95,7 +95,7 @@ const Home = () => {
       <div className=" ">
         {/*Section1  */}
         <div className="relative h-[450px] md:h-[550px] justify-center mx-auto flex flex-col w-11/12 max-w-maxContent items-center text-white ">
-          <Link to={"/signup"}>
+          <Link to={"/filter-notes"}>
             <div
               className="z-0 group p-1 mx-auto rounded-full bg-gradient-to-r from-[#5189ff] to-caribbeangreen-300 font-bold text-white
                                         transition-all duration-200 hover:scale-95 w-fit"
