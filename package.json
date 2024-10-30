@@ -6,12 +6,12 @@
     "express": "^4.21.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.7.1",
-    "react-spinners": "^0.14.1"
+    "react-spinners": "^0.14.1",
+    "vite": "^5.4.10"
   },
   "scripts": {
-   "start": "concurrently \"npm run server\" \"npm run client\"",
-   "server": "node notes-backend/index.js", 
-   "client": "cd Client && npm run dev"
-}
-
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node notes-backend/index.js",
+    "client": "cd Client && npm run dev"
+  }
 }

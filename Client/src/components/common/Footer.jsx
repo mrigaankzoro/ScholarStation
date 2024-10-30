@@ -123,7 +123,7 @@ const Footer = () => {
               <span> Made with ❤️</span>
 
               <Link
-                to=""
+                to="delete-note"
                 target="__blank"
                 className="text-white hover:underline mr-1"
               >
