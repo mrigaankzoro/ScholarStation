@@ -9,7 +9,7 @@
       "src": "Client/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist" // This is where Vite puts the build output
+        "distDir": "dist" 
       }
     }
   ],
