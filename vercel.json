@@ -1,25 +1,26 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "notes-backend/index.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "Client/package.json",
-        "use": "@vercel/static-build",
-        "config": { "distDir": "Client/dist" }
+  "version": 2,
+  "builds": [
+    {
+      "src": "notes-backend/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "Client/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist" // This is where Vite puts the build output
       }
-    ],
-    "routes": [
-      {
-        "src": "/api/(.*)",
-        "dest": "notes-backend/index.js"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "/Client/$1"
-      }
-    ]
-  }
-  
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "notes-backend/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/Client/$1"
+    }
+  ]
+}
