@@ -4,18 +4,17 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite",                     
+    "build": "vite build",             
+    "start": "vite preview",           
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "server": "cd server && npm run dev"
+    "server": "cd ../notes-backend && npm start" 
   },
   "dependencies": {
     "@ramonak/react-progress-bar": "^5.0.3",
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.5.0",
     "chart.js": "^4.4.0",
-    "concurrently": "^8.2.1",
     "copy-to-clipboard": "^3.3.3",
     "framer-motion": "^10.16.4",
     "razorpay": "^2.9.2",

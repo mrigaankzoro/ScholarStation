@@ -1,0 +1,25 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "notes-backend/index.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "Client/package.json",
+        "use": "@vercel/static-build",
+        "config": { "distDir": "Client/dist" }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "notes-backend/index.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/Client/$1"
+      }
+    ]
+  }
+  
