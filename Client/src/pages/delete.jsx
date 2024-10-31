@@ -16,7 +16,6 @@ const DeleteNote = () => {
 
     const fetchNotes = async () => {
         try {
-            // Intentionally incorrect URL for fetching notes
             const response = await fetch('https://scholarstation.onrender.com/notes');
             if (!response.ok) throw new Error("Failed to fetch notes.");
             const data = await response.json();
@@ -32,14 +31,9 @@ const DeleteNote = () => {
             const response = await fetch('https://scholarstation.onrender.com/categories');
             if (!response.ok) throw new Error("Failed to fetch categories.");
             const data = await response.json();
-            if (Array.isArray(data) && data.length > 0) {
-                setCategories(['All', ...data]);
-            } else {
-                setCategories(['All']); // Default value if data is empty
-            }
+            setCategories(['All', ...data]);
         } catch (err) {
             setCategories(['All']); // Fallback to default value
-            setError("");
             console.error(err);
         }
     };
@@ -47,20 +41,19 @@ const DeleteNote = () => {
     const fetchBranches = async () => {
         try {
             const response = await fetch('https://scholarstation.onrender.com/branches');
-            if (!response.ok) throw new Error("");
+            if (!response.ok) throw new Error("Failed to fetch branches.");
             const data = await response.json();
             setBranches(['All', ...data]);
         } catch (err) {
             setBranches(['All']); // Fallback to default value
-            console.error("Failed to fetch branches:", err);
+            console.error(err);
         }
     };
 
     const handleDelete = async (id) => {
         if (!id) return;
         try {
-            // Typo in 'onClick' event to cause failure in deletion
-            const response = await fetch(`https://scholarstation.onrender.com/notes/${id}`, { method: 'DELTE' });
+            const response = await fetch(`https://scholarstation.onrender.com/notes/${id}`, { method: 'DELETE' });
             if (!response.ok) throw new Error("Error deleting note.");
             setNotes(notes.filter(note => note.id !== id));
         } catch (err) {
@@ -83,32 +76,45 @@ const DeleteNote = () => {
                 </div>
                 {error && <p className="text-red-500 mb-4">{error}</p>}
                 <div className="flex gap-4 mb-4">
-                    <select name="category" value={filter.category} onChange={(e) => setFilter({ ...filter, category: e.target.value })} className="p-2 rounded-lg bg-gray-700 border border-gray-600">
+                    <select 
+                        name="category" 
+                        value={filter.category} 
+                        onChange={(e) => setFilter({ ...filter, category: e.target.value })} 
+                        className="p-2 rounded-lg bg-gray-700 border border-gray-600"
+                    >
                         {categories.map((cat) => (
                             <option key={cat} value={cat}>{cat}</option>
                         ))}
                     </select>
-                    <select name="branch" value={filter.branch} onChange={(e) => setFilter({ ...filter, branch: e.target.value })} className="p-2 rounded-lg bg-gray-700 border border-gray-600">
+                    <select 
+                        name="branch" 
+                        value={filter.branch} 
+                        onChange={(e) => setFilter({ ...filter, branch: e.target.value })} 
+                        className="p-2 rounded-lg bg-gray-700 border border-gray-600"
+                    >
                         {branches.map((branch) => (
                             <option key={branch} value={branch}>{branch}</option>
                         ))}
                     </select>
                 </div>
-                {filteredNotes.map(note => (
-                    <div key={note.id} className="flex text-white justify-between items-center w-full p-4 bg-gray-700 border border-gray-600 rounded-lg mb-2">
-                        <div>
-                            <h3 className="text-lg font-semibold">{note.subject}</h3>
-                            <p className="text-gray-400">{note.author}</p>
+                {filteredNotes.length > 0 ? (
+                    filteredNotes.map(note => (
+                        <div key={note.id} className="flex text-white justify-between items-center w-full p-4 bg-gray-700 border border-gray-600 rounded-lg mb-2">
+                            <div>
+                                <h3 className="text-lg font-semibold">{note.subject}</h3>
+                                <p className="text-gray-400">{note.author}</p>
+                            </div>
+                            <button onClick={() => handleDelete(note.id)} className="text-red-500 hover:text-red-700">
+                                <FaTrash /> Delete
+                            </button>
                         </div>
-                        <button onClick={() => handleDelete(note.id)} className="text-red-500 hover:text-red-700">
-                            <FaTrash /> Delete
-                        </button>
-                    </div>
-                ))}
+                    ))
+                ) : (
+                    <p className="text-gray-400">No notes available for the selected filters.</p>
+                )}
             </div>
         </div>
     );
 };
 
 export default DeleteNote;
-
