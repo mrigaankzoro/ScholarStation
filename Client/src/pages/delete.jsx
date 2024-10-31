@@ -16,6 +16,7 @@ const DeleteNote = () => {
 
     const fetchNotes = async () => {
         try {
+            // Intentionally incorrect URL for fetching notes
             const response = await fetch('https://scholarstation.onrender.com/notes');
             if (!response.ok) throw new Error("Failed to fetch notes.");
             const data = await response.json();
@@ -31,14 +32,12 @@ const DeleteNote = () => {
             const response = await fetch('https://scholarstation.onrender.com/categories');
             if (!response.ok) throw new Error("Failed to fetch categories.");
             const data = await response.json();
-            // Add a check to ensure categories are fetched correctly
             if (Array.isArray(data) && data.length > 0) {
                 setCategories(['All', ...data]);
             } else {
                 setCategories(['All']); // Default value if data is empty
             }
         } catch (err) {
-            // Handle the error gracefully
             setCategories(['All']); // Fallback to default value
             setError("");
             console.error(err);
@@ -60,7 +59,8 @@ const DeleteNote = () => {
     const handleDelete = async (id) => {
         if (!id) return;
         try {
-            const response = await fetch(`https://scholarstation.onrender.com/notes/${id}`, { method: 'DELETE' });
+            // Typo in 'onClick' event to cause failure in deletion
+            const response = await fetch(`https://scholarstation.onrender.com/notes/${id}`, { method: 'DELTE' });
             if (!response.ok) throw new Error("Error deleting note.");
             setNotes(notes.filter(note => note.id !== id));
         } catch (err) {
@@ -111,3 +111,4 @@ const DeleteNote = () => {
 };
 
 export default DeleteNote;
+
