@@ -55,7 +55,9 @@ const DeleteNote = () => {
         try {
             const response = await fetch(`https://scholarstation.onrender.com/notes/${id}`, { method: 'DELETE' });
             if (!response.ok) throw new Error("Error deleting note.");
-            setNotes(notes.filter(note => note.id !== id));
+            
+            // After deletion, update the notes state by filtering out the deleted note
+            setNotes(prevNotes => prevNotes.filter(note => note.id !== id));
         } catch (err) {
             setError("Error deleting note.");
             console.error(err);
