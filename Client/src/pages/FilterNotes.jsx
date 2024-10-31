@@ -15,7 +15,7 @@ function FilterNotes() {
 
     const fetchNotes = async () => {
         try {
-            const response = await fetch('https://scholarstation.onrender.com');
+            const response = await fetch('https://scholarstation.onrender.com/notes'); // Corrected endpoint URL
             if (!response.ok) {
                 throw new Error('Failed to fetch notes');
             }

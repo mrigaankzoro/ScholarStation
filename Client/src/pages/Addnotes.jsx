@@ -23,7 +23,7 @@ const NotesManager = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('https://scholarstation.onrender.com', {
+            const response = await fetch('https://scholarstation.onrender.com/notes', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ const NotesManager = () => {
 
     const fetchNotes = async () => {
         try {
-            const response = await fetch('https://scholarstation.onrender.com');
+            const response = await fetch('https://scholarstation.onrender.com/notes'); // Corrected endpoint URL
             if (!response.ok) throw new Error('Failed to fetch notes');
             const data = await response.json();
             setNotes(data);
@@ -76,7 +76,7 @@ const NotesManager = () => {
         <div className="bg-gray-900 min-h-screen text-black flex flex-col items-center p-4">
             <div className="w-full max-w-md bg-gray-800 p-6 rounded-lg text-white shadow-lg">
                 <div className="flex items-center mb-4">
-                    <FaPen className="text-lg  text-white mr-2" />
+                    <FaPen className="text-lg text-white mr-2" />
                     <h2 className="text-2xl font-bold text-white">Add New Note</h2>
                 </div>
                 {error && <p className="text-red-500 mb-4">{error}</p>}
