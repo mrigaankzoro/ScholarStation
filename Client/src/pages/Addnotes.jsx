@@ -90,7 +90,7 @@ const NotesManager = () => {
                             value={note[field]}
                             onChange={handleChange}
                             required
-                            className="p-2 rounded-lg bg-gray-700 border border-gray-600"
+                            className="p-2 rounded-lg bg-gray-700 border border-gray-600 text-black"
                         />
                     ))}
                     <button type="submit" className="bg-blue-500 p-2 rounded-lg hover:bg-blue-600 transition duration-200">Add Note</button>
