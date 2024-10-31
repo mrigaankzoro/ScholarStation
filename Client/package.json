@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",                     
-    "build": "vite build",             
-    "start": "vite preview",           
+    "dev": "vite",
+    "build": "vite build",
+    "start": "vite preview",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "server": "cd ../notes-backend && npm start" 
+    "server": "cd ../notes-backend && npm start"
   },
   "dependencies": {
     "@ramonak/react-progress-bar": "^5.0.3",
