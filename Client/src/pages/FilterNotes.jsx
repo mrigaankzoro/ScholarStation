@@ -103,17 +103,17 @@ function FilterNotes() {
                         subjectsForYear.map((note) => (
                             <div
                                 key={note.subject}
-                                className="mx-10 flex justify-between items-center w-full p-4 border-2 border-gray-300 mb-2 rounded-lg shadow-md transition-transform transform hover:scale-105"
+                                className="mx-10 flex md:flex-row flex-col justify-between items-start md:items-center w-full p-4 border-2 border-gray-300 mb-2 rounded-lg shadow-md transition-transform transform hover:scale-105"
                             >
                                 <a
                                     href={note.notesLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-white font-semibold hover:underline"
+                                    className="text-white font-semibold hover:underline text-base md:text-lg"
                                 >
                                     {note.subject}
                                 </a>
-                                <p className="flex items-center text-gray-600 gap-2">
+                                <p className="flex items-center text-gray-400 gap-2 mt-2 md:mt-0 text-sm md:text-base">
                                     <GoPerson className="mt-1" />
                                     {note.author}
                                 </p>
