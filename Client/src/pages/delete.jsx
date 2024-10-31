@@ -16,7 +16,7 @@ const DeleteNote = () => {
 
     const fetchNotes = async () => {
         try {
-            const response = await fetch('http://localhost:5000/notes');
+            const response = await fetch('https://scholarstation.onrender.com/notes');
             if (!response.ok) throw new Error("Failed to fetch notes.");
             const data = await response.json();
             setNotes(data);
@@ -28,7 +28,7 @@ const DeleteNote = () => {
 
     const fetchCategories = async () => {
         try {
-            const response = await fetch('http://localhost:5000/categories');
+            const response = await fetch('https://scholarstation.onrender.com/categories');
             if (!response.ok) throw new Error("Failed to fetch categories.");
             const data = await response.json();
             // Add a check to ensure categories are fetched correctly
@@ -47,7 +47,7 @@ const DeleteNote = () => {
 
     const fetchBranches = async () => {
         try {
-            const response = await fetch('http://localhost:5000/branches');
+            const response = await fetch('https://scholarstation.onrender.com/branches');
             if (!response.ok) throw new Error("");
             const data = await response.json();
             setBranches(['All', ...data]);
@@ -60,7 +60,7 @@ const DeleteNote = () => {
     const handleDelete = async (id) => {
         if (!id) return;
         try {
-            const response = await fetch(`http://localhost:5000/notes/${id}`, { method: 'DELETE' });
+            const response = await fetch(`https://scholarstation.onrender.com/notes/${id}`, { method: 'DELETE' });
             if (!response.ok) throw new Error("Error deleting note.");
             setNotes(notes.filter(note => note.id !== id));
         } catch (err) {
