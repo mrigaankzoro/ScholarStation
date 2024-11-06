@@ -14,14 +14,12 @@ import ReviewSlider from "../components/common/ReviewSlider";
 import Course_Slider from "../components/core/Catalog/Course_Slider";
 
 import { getCatalogPageData } from "../services/operations/pageAndComponentData";
-
 import { MdOutlineRateReview } from "react-icons/md";
 import { FaArrowRight } from "react-icons/fa";
-
 import { motion } from "framer-motion";
 import { fadeIn } from "./../components/common/motionFrameVarients";
 
-// background random images
+// Import background images
 import backgroundImg1 from "../assets/Images/random bg img/coding bg1.jpg";
 import backgroundImg2 from "../assets/Images/random bg img/coding bg2.jpg";
 import backgroundImg3 from "../assets/Images/random bg img/coding bg3.jpg";
@@ -35,114 +33,118 @@ import backgroundImg10 from "../assets/Images/random bg img/coding bg10.jpg";
 import backgroundImg111 from "../assets/Images/random bg img/coding bg11.jpg";
 
 const randomImges = [
-  backgroundImg1,
-  backgroundImg2,
-  backgroundImg3,
-  backgroundImg4,
-  backgroundImg5,
-  backgroundImg6,
-  backgroundImg7,
-  backgroundImg8,
-  backgroundImg9,
-  backgroundImg10,
-  backgroundImg111,
+  backgroundImg1, backgroundImg2, backgroundImg3, backgroundImg4, backgroundImg5,
+  backgroundImg6, backgroundImg7, backgroundImg8, backgroundImg9, backgroundImg10, backgroundImg111,
 ];
 
-// hardcoded
-
 const Home = () => {
-  // get background random images
   const [backgroundImg, setBackgroundImg] = useState(null);
+  const [CatalogPageData, setCatalogPageData] = useState(null);
+  const categoryID = "6506c9dff191d7ffdb4a3fe2";
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const bg = randomImges[Math.floor(Math.random() * randomImges.length)];
     setBackgroundImg(bg);
   }, []);
 
-  // get courses data
-  const [CatalogPageData, setCatalogPageData] = useState(null);
-  const categoryID = "6506c9dff191d7ffdb4a3fe2"; // hard coded
-  const dispatch = useDispatch();
-
   useEffect(() => {
     const fetchCatalogPageData = async () => {
       const result = await getCatalogPageData(categoryID, dispatch);
       setCatalogPageData(result);
-      // console.log("page data ==== ",CatalogPageData);
     };
     if (categoryID) {
       fetchCatalogPageData();
     }
   }, [categoryID]);
 
-  // console.log('================ CatalogPageData?.selectedCourses ================ ', CatalogPageData)
-
   return (
-    <React.Fragment>
-      {/* background random image */}
-      <div>
-        <div className="w-full h-[450px] md:h-[650px] absolute top-0 left-0 opacity-[0.3] overflow-hidden object-cover ">
+    <div className="relative min-h-screen bg-richblack-900">
+      {/* Hero Section Background */}
+      <div className="absolute top-0 left-0 w-full h-[700px] overflow-hidden">
+        <div className="relative w-full h-full">
           <img
             src={backgroundImg}
             alt="Background"
-            className="w-full h-full object-cover "
+            className="w-full h-full object-cover"
           />
-
-          <div className="absolute left-0 bottom-0 w-full h-[250px] opacity_layer_bg "></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-richblack-900/60 to-richblack-900"></div>
         </div>
       </div>
 
-      <div className=" ">
-        {/*Section1  */}
-        <div className="relative h-[450px] md:h-[550px] justify-center mx-auto flex flex-col w-11/12 max-w-maxContent items-center text-white ">
-          <Link to={"/filter-notes"}>
-            <div
-              className="z-0 group p-1 mx-auto rounded-full bg-gradient-to-r from-[#5189ff] to-caribbeangreen-300 font-bold text-white
-                                        transition-all duration-200 hover:scale-95 w-fit"
-            >
-              <div
-                className="flex flex-row items-center gap-2 rounded-full px-10 py-[5px]
-                              transition-all duration-200 group-hover:bg-richblack-900"
+      {/* Main Content */}
+      <div className="relative">
+        {/* Hero Section */}
+        <section className="relative pt-20 pb-16 sm:pt-32 sm:pb-24 px-4">
+          <div className="container mx-auto max-w-7xl">
+            <div className="text-center space-y-8">
+              {/* CTA Button */}
+              <Link to="/filter-notes" className="inline-block">
+                <div className="group relative inline-flex items-center justify-center overflow-hidden rounded-full p-[2px] transition-all duration-300 ease-in-out hover:scale-105 bg-gradient-to-r from-blue-500 to-green-400">
+                  <div className="relative rounded-full bg-richblack-900 px-6 py-2 transition-all duration-300 group-hover:bg-opacity-0">
+                    <div className="flex items-center gap-2 text-white">
+                      <span className="font-semibold">Become a Provider</span>
+                      <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Hero Text */}
+              <motion.div
+                variants={fadeIn("up", 0.2)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: false, amount: 0.2 }}
+                className="space-y-4"
               >
-                <p className="">Become an Provider</p>
-                <FaArrowRight className="stroke-1 stroke-black" />
-              </div>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">
+                  Empower Your Education with{" "}
+                  <HighlightText text="Scholar Station" />
+                </h1>
+                <p className="text-lg sm:text-xl text-richblack-200 max-w-3xl mx-auto">
+                  Transform your learning journey with comprehensive study materials
+                  and expert guidance.
+                </p>
+              </motion.div>
+
+              {/* CTA Buttons */}
+              <motion.div
+                variants={fadeIn("up", 0.3)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: false, amount: 0.2 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8"
+              >
+                <button className="px-6 py-3 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors duration-300">
+                  Explore Courses
+                </button>
+                <button className="px-6 py-3 rounded-lg border-2 border-richblack-300 text-white font-semibold hover:bg-richblack-700 transition-colors duration-300">
+                  View Notes
+                </button>
+              </motion.div>
             </div>
-          </Link>
+          </div>
+        </section>
 
-          <motion.div
-            variants={fadeIn("left", 0.1)}
-            initial="hidden"
-            whileInView={"show"}
-            viewport={{ once: false, amount: 0.1 }}
-            className="text-center text-3xl lg:text-4xl font-semibold mt-7  "
-          >
-            Empower Your Education with
-            <HighlightText text={"Scholar Station"} />
-          </motion.div>
+        {/* Notes Section with Enhanced Spacing */}
+        <section className="relative py-16 sm:py-24">
+          <div className="container mx-auto max-w-7xl px-4">
+            <NotesSection />
+          </div>
+        </section>
 
-          <motion.div
-            variants={fadeIn("right", 0.1)}
-            initial="hidden"
-            whileInView={"show"}
-            viewport={{ once: false, amount: 0.1 }}
-            className=" mt-4 w-[90%] text-center text-base lg:text-lg font-bold text-richblack-300"
-          ></motion.div>
-        </div>
-        <div>
-          <NotesSection />
-        </div>
-        {/*Section 3 */}
-        <div className="mt-14 w-11/12 mx-auto max-w-maxContent flex-col items-center justify-between gap-8 first-letter bg-richblack-900 text-white">
-          <InstructorSection />
+        {/* Instructor Section with Enhanced Styling */}
+        <section className="relative py-16 sm:py-24 bg-richblack-900">
+          <div className="container mx-auto max-w-7xl px-4">
+            <InstructorSection />
+          </div>
+        </section>
 
-          {/* Reviws from Other Learner */}
-        </div>
-
-        {/*Footer */}
+        {/* Footer */}
         <Footer />
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 
